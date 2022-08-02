@@ -27,22 +27,3 @@
     </table>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-<div id='app'>
-    <div>
-        <h1>Count is: {{ count }}</h1>
-        <br>
-        <p>
-            <button v-on:click="count++">Increment Count!</button>
-        </p>
-        <br>
-    </div>
-</div>
-
-<script>
-    var vueApp = new Vue({
-        el: '#app',
-        data: {
-            count: 0
-        }
-    })
-</script>
