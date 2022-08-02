@@ -1,0 +1,26 @@
+﻿
+@model UserModel
+@{
+    ViewData["Title"] = "Login";
+}
+<h1 style="text-align: center;padding-top: 120px">Login</h1>
+<div class="d-flex justify-content-center form_container" style="padding-top: 120px">
+    <form asp-action="LoginVerification">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.UserName)
+            <label asp-for="UserName" class="control-label text-white"></label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+            <div class="form-group">
+                @Html.DisplayNameFor(model => model.Password)
+                <label asp-for="Password" class="control-label text-white"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Create" class="btn btn-success float-right">Sign In</button>
+            </div>
+        </div>
+    </form>
+</div>

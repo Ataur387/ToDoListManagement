@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ToDoListModel>
+@{
+    ViewData["Title"] = "To Do List";
+}
+<div class="col-md-12 border-dark">
+    <a asp-controller="TodoList" asp-action="Create" class="btn btn-success">Add New Item</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th>@Html.DisplayNameFor(model => model.isChecked)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.isChecked)</td>
+                    <td>
+                        <a class="btn btn-secondary" asp-controller="ToDoList" asp-action="Edit" asp-route-id="@item.Id"> Edit </a> ||
+                        <a class="btn btn-danger" asp-controller="ToDoList" asp-action="Delete" asp-route-id="@item.Id"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<div id='app'>
+    <div>
+        <h1>Count is: {{ count }}</h1>
+        <br>
+        <p>
+            <button v-on:click="count++">Increment Count!</button>
+        </p>
+        <br>
+    </div>
+</div>
+
+<script>
+    var vueApp = new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        }
+    })
+</script>
